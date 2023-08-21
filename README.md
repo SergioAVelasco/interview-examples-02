@@ -6,7 +6,7 @@ En el repositorio, hay una carpeta con un proyecto de nodejs, este proyecto incl
 
 Por parte del front end se espera lo siguiente
 
-Se creara una aplicacion con la herramienta de tu eleccion, la carpeta de la applicacion se llamara frontend y estara a la misma altura que la de backend, en esta aplicacion se creara una pantalla de rating como el que aparece en la imagen
+Se creara una aplicacion con la herramienta de tu eleccion, la carpeta de la applicacion se llamara frontend y estara a la misma altura que la de backend, en esta aplicacion se creara una pantalla de rating como el que aparece en la imagen (dentro de la carpeta de backend, hay una carpeta llamada assets, se pueden usar)
 
 Al cargar la aplicacion, se leera el valor del servicio backend y se mostrara en pantalla
 
