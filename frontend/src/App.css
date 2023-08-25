@@ -1,3 +1,7 @@
+body {
+  background-color: #282c34;
+}
+
 .App {
   text-align: center;
 }
@@ -35,4 +39,25 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+.container-center {
+  border: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+  background-color: #282c34;
+}
+
+.container-flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.container-flex-row {
+  display: flex;
+  flex-direction: row;
 }
