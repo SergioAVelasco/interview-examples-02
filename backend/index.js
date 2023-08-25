@@ -1,8 +1,10 @@
 var express = require("express");
 const bodyParser = require("body-parser");
 const PORT = 3001;
+var cors = require('cors');
 
 const app = express();
+app.use(cors());
 
 let databaseRate = 3;
 
@@ -16,7 +18,8 @@ app.get("/rate", (req, res) => {
 app.post("/rate", (req, res) => {
   body = req.body;
   const { rate } = body;
-  databaseRate = rate;
+  if(rate === databaseRate) databaseRate = 0
+  else databaseRate = rate;
   res.send({ rate: databaseRate });
 });
 
