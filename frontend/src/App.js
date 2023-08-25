@@ -11,23 +11,25 @@ function App() {
   const [count, setCount]= useState(0);
   const array = Array.from({length: 5}, (_, i) => i + 1)
 
-  const fetchData =() =>{
-    axios.get(BASE_URL).then((resp)=>{
-        if(resp.status === 200) return resp.data
-        throw resp;})
-      .then(({rate})=> {setRate(rate); setCount(rate)})
-      .catch((error)=>console.log('error ', error));
-  }
-
   useEffect((()=>{
-    fetchData();
+    axios.get(BASE_URL).then((resp)=>{
+      if(resp.status === 200) return resp.data
+      throw resp;})
+    .then(({rate})=> {setRate(rate); setCount(rate)})
+    .catch((error)=>{ console.log('error ', error);  alert('Something went wrong!')});
+
   }),[])
 
   const onHandleClick = async (number) =>{
-    const {data} = await axios.post(BASE_URL, {rate: number})
-    const {rate}=  data;
-    setRate(rate)
-    if(rate === 0) setCount(rate);
+    try{
+      const {data: {rate}} = await axios.post(BASE_URL, {rate: number});
+      setRate(rate)
+      if(rate === 0) setCount(rate);
+    }
+    catch(error){
+      console.log('error: ', error);
+      alert('Something went wrong!')
+    }
   }
 
   return (
